@@ -16,14 +16,6 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeDAO employeeDAO;
 
-	public List<Employee> getEmployee(){
-		return employeeDAO.getAllEmployee();
-	}
-
-	public Employee getEmployeeByName(String employeeName) {
-		return employeeDAO.getEmployeeBySurname(employeeName);
-	}
-
 	public List<Employee> getWaiters() {
 		return employeeDAO.getAllWaiters();
 	}

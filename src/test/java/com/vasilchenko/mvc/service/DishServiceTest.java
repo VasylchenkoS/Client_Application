@@ -1,5 +1,7 @@
 package com.vasilchenko.mvc.service;
 
+import com.vasilchenko.java.dao.DishDAO;
+import com.vasilchenko.java.model.Dish;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,13 +15,18 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @Rollback(true)
-public class MenuServiceTest {
+public class DishServiceTest {
 
-	@Autowired MenuService menuService;
+	@Autowired DishService dishservice;
+	@Autowired DishDAO dishDAO;
 
 
 	@Test
-	public void testGetAllMenu1() throws Exception {
-		Assert.assertNotNull(menuService.getAllMenu());
+	public void testGetDishByName() throws Exception {
+		Dish dish = new Dish();
+		String testName = "testName";
+		dish.setName(testName);
+		dishDAO.addNewDish(dish);
+		Assert.assertEquals(dish, dishservice.getDishByName(testName));
 	}
 }

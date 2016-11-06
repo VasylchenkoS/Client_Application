@@ -35,6 +35,8 @@ public class MainController {
 	@RequestMapping(value = "/search_dish", method = RequestMethod.GET)
 	public String findDishByName(@RequestParam("dishFindName") String dishFindName, Model model) {
 		if (dishFindName != null) {
+			if (!Character.isHighSurrogate(dishFindName.charAt(0)))
+				dishFindName = Character.toUpperCase(dishFindName.charAt(0)) + dishFindName.substring(1, dishFindName.length());
 			Dish dish = dishService.getDishByName(dishFindName);
 			if (dish != null) {
 				model.addAttribute("dish", dish);

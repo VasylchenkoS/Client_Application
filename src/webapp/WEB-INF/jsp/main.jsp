@@ -78,7 +78,7 @@
     </div>
     <div class="row slideanim">
         <c:forEach items="${menus}" var="menu">
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-3 col-xs-12">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
                         <h1>${menu.menuName}</h1>
@@ -118,7 +118,7 @@
                              onerror="if (this.src != '/static/images/employees/default.jpg') this.src = '/static/images/employees/default.jpg';"
                              alt="NO IMAGE">
                         <p><strong>${waiter.name}</strong></p>
-                        <p>$0{waiter.position}</p>
+                        <p>${waiter.position}</p>
                     </div>
                 </div>
             </c:forEach>
