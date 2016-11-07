@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -20,6 +21,7 @@
     <div class="container">
         <div class="navbar-header">
                 <a href="${pageContext.request.contextPath}/" class="navbar-brand">Main Page</a>
+            <a href="" onclick="history.back()" class="navbar-brand">Back</a>
         </div>
     </div>
 </nav>
@@ -35,9 +37,9 @@
         <div class="col-sm-8">
             <h2>${dish.name}</h2><br>
             <h4><strong> ABOUT: </strong>
-                <br>Weight: ${dish.weight}
+                <br>Weight: <fmt:formatNumber value="${dish.weight}" maxIntegerDigits="2"/> Kg
                 <br>Category: ${dish.category}
-                <br>Price: ${dish.price}
+                <br>Price: ${dish.price} UAH
             </h4>
             <p><strong>Ingredient's:</strong>
                 <c:forEach items="${dish.ingredients}" var="ing">

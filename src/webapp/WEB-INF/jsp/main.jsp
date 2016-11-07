@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -85,7 +86,9 @@
                     </div>
                     <div class="panel-body">
                         <c:forEach items="${menu.dishSet}" var="dish">
-                            <p><strong><a href="<c:url value="/dish/${dish.name}"/>">${dish.name}</a></strong>  ${dish.weight} <h3>$${dish.price}</h3>
+                            <p><strong><h3><a href="<c:url value="/dish/${dish.name}"/>">${dish.name}</a></h3></strong></p>
+                            <h5>Weigth: <fmt:formatNumber value="${dish.weight}" maxIntegerDigits="2"/> Kg</h5>
+                            <h5>Price: ${dish.price} UAH</h5>
                         </c:forEach>
                     </div>
                 </div>
